@@ -1,0 +1,27 @@
+.side_area {
+  width: 40%;
+  
+  .heading {
+    padding: 16px;
+    background-color: whitesmoke;
+    margin-bottom: 16px;
+  }
+
+  .filter_tags_area {
+    display: flex;
+    flex-wrap: wrap;
+
+    .filter_tag {
+      margin-top: 4px;
+      margin-right: 4px;
+      border: 1px solid lightgrey;
+      background-color: transparent;
+      padding: 8px;
+      color: inherit;
+
+      &:hover {
+        color: black;        
+      }
+    }
+  }
+}

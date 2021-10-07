@@ -1,0 +1,32 @@
+.fashion_week_section {
+  position: relative;
+  margin-top: 128px;
+  height: 80vh;
+  overflow: hidden; 
+  background-image: url("https://cdn.shopify.com/s/files/1/0041/9525/4381/files/parallax-img.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+
+  img {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .text_area {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    height: 100%;    
+    flex-direction: column;    
+    justify-content: center;
+    align-items: flex-start;
+
+    button {
+      margin-top: 80px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "../bar_styles/bar.module.scss";
+
+.to_page_bar {
+  @extend .bar;  
+
+  button {
+    margin-right: 8px;
+    background-color: transparent;
+    border: 1px solid lightgrey;    
+    color: black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  .active_button {
+    background-color: black;
+    border: none;
+    color: white;
+  }
+}

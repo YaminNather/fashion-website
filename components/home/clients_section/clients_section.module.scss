@@ -1,0 +1,9 @@
+.clients_section {
+  img {
+    transition: 300ms;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

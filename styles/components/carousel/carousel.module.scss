@@ -1,0 +1,28 @@
+.carousel {
+  position: relative;
+
+  .scroll_button {
+    $size: 48px;
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    display: flex;
+    height: $size;
+    width: $size;
+    border-radius: 2000px;
+    justify-content: center;    
+    align-items: center;
+    transition: 300ms;    
+  }
+  
+  $scroll_button_padding: 16px;    
+  .left_button {
+    @extend .scroll_button;
+    left: $scroll_button_padding;
+  }
+  
+  .right_button {
+    @extend .scroll_button;
+    right: $scroll_button_padding;
+  }
+}

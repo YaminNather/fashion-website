@@ -1,0 +1,39 @@
+.reviews_section {
+  margin-top: 128px;
+  background-image: url("https://cdn.shopify.com/s/files/1/0041/9525/4381/files/testimonial-bg.jpg");
+  background-attachment: fixed;
+  padding-top: 128px;
+  padding-bottom: 128px;
+
+  .main_content {
+    width: 60%;
+
+    .heading {
+      text-align: center;
+    }
+
+    .card {
+      margin-top: 32px;
+      background-color: white;
+      padding: 48px;
+
+      .upper_section {
+        display: flex;
+        align-items: center;
+        
+        img {
+          width: 88px;
+          height: 88px;
+        }
+
+        .text_area {
+          margin-left: 16px;
+        }      
+      }
+
+      .main_text {
+        margin-top: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.special_products_section {
+  margin-top: 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .description {
+    width: 50%;
+    text-align: center;
+  }
+}

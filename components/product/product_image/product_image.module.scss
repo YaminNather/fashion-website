@@ -1,0 +1,48 @@
+$padding: 20px;
+$transition: 300ms;
+
+.product_image {  
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .image_viewport {
+    width: 100%;
+    height: 300px;  
+    overflow: hidden;
+
+    img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: 300ms;
+      object-fit: cover;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }      
+  }
+
+  .discount_container {
+    position: absolute;
+    top: $padding;
+    left: $padding;
+    display: inline;
+    background-color: lightgrey;
+    padding: 2px 8px;
+    transition: $transition;
+  }
+
+  .buttons_area {
+    position: absolute;
+    top: $padding;
+    right: $padding;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: $transition;
+  }
+}
