@@ -6,7 +6,7 @@ import CheckoutToken from "ecommerce_client/dist/models/checkout_token";
 import { NextRouter, useRouter } from "next/router";
 import React from "react";
 import styles from "./checkout_box_styles.module.scss";
-import { openRazorpayPaymentPortal } from "../../checkout/payment_step/razorpay_opener.js";
+import { openRazorpayPaymentPortal } from "../../checkout/index/payment_step/razorpay_opener.js";
 
 export interface CheckoutBoxProps {
   cart: Cart;

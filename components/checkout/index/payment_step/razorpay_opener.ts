@@ -16,6 +16,7 @@ export function openRazorpayPaymentPortal(orderId: string, amount: number): Prom
       }
     };
 
+    // @ts-ignore
     const razorpayOverlay = new Razorpay(options);
     razorpayOverlay.on(
       "payment.failed", 
