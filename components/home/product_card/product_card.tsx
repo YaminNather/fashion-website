@@ -1,16 +1,11 @@
 import React from "react";
-// import Product from "../../product/product";
 import styles from "../../../styles/components/home/product_card/product_card.module.scss";
 import classNames from "classnames";
-import Button from "@mui/material/Button";
-import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
-import { createTheme, Theme, ThemeProvider } from "@mui/material/styles";
-import FavoriteBorderOutlined from "@mui/icons-material/FavoriteBorderOutlined";
-import BarChartOutlined from "@mui/icons-material/BarChartOutlined";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ProductImage from "../../product/product_image/product_image";
-import { Product } from "@chec/commerce.js/types/product";
+import Product from "ecommerce_client/dist/models/product";
+// import Product from "../../../commerce_client/inventory/product";
 
 export interface ProductCardProps {
   product: Product;
@@ -28,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
             fontWeight="bold" color="black" 
             marginTop="8px"
           >
-            {props.product.price.formatted_with_code}
+            {props.product.original_price.formatted_with_code}
           </Typography>
           
           &nbsp;&nbsp;&nbsp;
@@ -41,7 +36,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
           </Typography> */}
         </Box>
         
-        <Typography>{props.product.name}</Typography>   
+        <Typography>{props.product.product_name}</Typography>   
       </div>      
     );
   };  

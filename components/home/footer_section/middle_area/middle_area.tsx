@@ -67,7 +67,7 @@ const MiddleArea: React.FC = (props) => {
         <ul>
           {linkDetails.map( 
             (value, index) => (
-              <li>
+              <li key={index}>
                 <Link href={value.href}><a>{value.label}</a></Link>
               </li>
             )

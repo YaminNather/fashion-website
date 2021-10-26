@@ -4,7 +4,8 @@ import Carousel from "../../carousel/carousel";
 // import Product from "../../product/product";
 import ProductCard from "../product_card/product_card";
 import styles from "../../../styles/components/home/products_list/products_list.module.scss";
-import { Product } from "@chec/commerce.js/types/product";
+// import Product from "../../../commerce_client/inventory/product";
+import Product from "ecommerce_client/dist/models/product";
 
 export interface ProductListProps {
   products: Product[];
@@ -18,7 +19,7 @@ const ProductsList: React.FC<ProductListProps> = (props) => {
       <Carousel className={classNames(styles.products_list, props.className)} slidesPerView={4} spaceBetween={32} style={props.style}>
         {props.products.map(
           (element, index) => (
-            <ProductCard product={element} />
+            <ProductCard key={index} product={element} />
           )
         )}
 

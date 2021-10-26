@@ -1,0 +1,16 @@
+.checkout_box {
+  margin-left: 64px;
+  width: 50%;
+  background-color: rgba(245, 245, 245);
+  padding: 32px;
+
+  .price_row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .add_to_cart {
+    width: 100%;
+    margin-top: 32px;
+  }
+}

@@ -1,0 +1,27 @@
+.order_success_page {
+  .main_section {
+    text-align: center;
+    padding-top: 128px;
+    padding-bottom: 128px;
+
+    .order_success_area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .check {
+        color: black;
+        font-size: 128px;
+      }
+
+      .heading {
+        color: black;
+        font-size: 64px;
+      }
+    }
+    
+    .to_home_page_button {
+      margin-top: 30px;
+    }
+  }
+}

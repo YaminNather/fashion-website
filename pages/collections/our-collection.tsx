@@ -1,22 +1,30 @@
-import { Product } from "@chec/commerce.js/types/product";
 import classNames from "classnames";
+import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
+import Product from "ecommerce_client/dist/models/product";
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import getCommerce from "../../commercejs/commercejs";
-import Banner from "../../components/collections/our-collections/banner/banner";
-import FilterBar from "../../components/collections/our-collections/main_section/right_area/filter_bar/filter_bar";
+import Banner from "../../components/banner/banner";
 import RightArea from "../../components/collections/our-collections/main_section/right_area/right_area";
 import SideArea from "../../components/collections/our-collections/main_section/side_area/side_area";
 import FooterSection from "../../components/home/footer_section/footer_section";
 import NavBar from "../../components/nav_bar/nav_bar";
+import getECommerceClient from "../../ecommerce_client/ecommerce_client";
 import styles from "../../styles/collections/our_collection.module.scss";
+
+interface ServerSideProps {
+  products: string;
+}
 
 interface Props {
   products: Product[];
 }
 
-const OurCollectionsPage: NextPage<Props> = (props) => {
+const OurCollectionsPage: NextPage<ServerSideProps> = (serverSideProps) => {
+  const props: Props = {
+    products: JSON.parse(serverSideProps.products)
+  };
+
   function render(): JSX.Element {
     return (
       <>
@@ -26,7 +34,7 @@ const OurCollectionsPage: NextPage<Props> = (props) => {
 
         <NavBar />
 
-        <Banner />
+        <Banner>OUR COLLECTION</Banner>
 
         <section id='main_section' className={classNames("container", styles.main_section)}>
           <SideArea />
@@ -46,12 +54,14 @@ const OurCollectionsPage: NextPage<Props> = (props) => {
 
 export default OurCollectionsPage;
 
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const products: Product[] = (await getCommerce().products.list()).data;
+export const getServerSideProps: GetServerSideProps<ServerSideProps> = async (context) => {
+  const client: ECommerceClient = getECommerceClient();
+  
+  const products: Product[] = await client.inventory.getAllProducts();
 
   return {
     props: {
-      products: products
+      products: JSON.stringify(products, null, 2)
     }
   };
 };

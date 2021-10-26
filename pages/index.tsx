@@ -12,16 +12,21 @@ import ReviewsSection from '../components/home/reviews_section/reviews_section';
 import ClientsSection from '../components/home/clients_section/clients_section';
 import FooterSection from '../components/home/footer_section/footer_section';
 import NavBar from '../components/nav_bar/nav_bar';
-import Commerce from '@chec/commerce.js';
-import getCommerce from '../commercejs/commercejs';
-import { ProductCollection } from '@chec/commerce.js/features/products';
-import { Product } from '@chec/commerce.js/types/product';
+import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
+import Product from 'ecommerce_client/dist/models/product';
+
+interface ServerSideProps {
+  productsJSON: string;
+}
 
 interface Props {
   products: Product[];
 }
 
-const Home: NextPage<Props> = (props) => {
+const Home: NextPage<ServerSideProps> = (serverSideProps) => {
+  const props: Props = {
+    products: JSON.parse(serverSideProps.productsJSON)
+  }; 
 
   return (
     <>
@@ -56,15 +61,13 @@ const Home: NextPage<Props> = (props) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const commerce: Commerce = getCommerce();
-  const productCollection: ProductCollection =  await commerce.products.list();  
-
-  const props: Props = {
-    products: productCollection.data
-  };
+export const getServerSideProps: GetServerSideProps<ServerSideProps> = async (context) => {
+  const commerceClient: ECommerceClient = new ECommerceClient();
+  const products: Product[] = await commerceClient.inventory.getAllProducts();
 
   return {
-    props: props
+    props: {
+      productsJSON: JSON.stringify(products, null, 2)
+    }
   };
 };

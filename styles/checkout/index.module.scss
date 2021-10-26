@@ -1,0 +1,31 @@
+.checkout_page {
+  .main_section {
+    display: flex;
+    height: 100vh;
+    padding-left: 200px;
+
+    .left_area {
+      padding-top: 64px;
+      flex-grow: 1;
+
+      .inputs_area {      
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+
+        input {
+          margin-top: 16px;
+          height: 40px;
+        }
+
+        .buttons_area {
+          margin-top: 32px;
+
+          a {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+  }
+}
