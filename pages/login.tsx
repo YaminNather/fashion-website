@@ -4,15 +4,17 @@ import Head from 'next/head';
 import FooterSection from '../components/home/footer_section/footer_section';
 import NavBar from '../components/nav_bar/nav_bar';
 import styles from "../styles/login.module.scss";
-import getCommerce from '../commercejs/commercejs';
+import Router from "next/router";
+import { AuthenticationResponse } from 'ecommerce_client/dist/authentication/authentication';
+import ECommerceClient from 'ecommerce_client/dist/ecommerce_client';
 
 // interface Props {
 //   products: Product[];
 // }
 
 const LoginPage: NextPage = () => {
-  const [email, setEmail] = React.useState<string>("");
-  const [password, setPassword] = React.useState<string>("");
+  const [email, setEmail] = React.useState<string>("test_user1@gmail.com");
+  const [password, setPassword] = React.useState<string>("test_password");
 
   return (
     <>
@@ -26,22 +28,24 @@ const LoginPage: NextPage = () => {
         <main className="container">
           <p className={styles.heading}>Login</p>
 
-          <input placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} value={email} />
+          <input placeholder="Email Address" defaultValue={email} onChange={(e) => setEmail(e.target.value)} value={email} />
           
-          <input placeholder="password" onChange={(e) => setPassword(e.target.value)} value={password} />
+          <input placeholder="password" defaultValue={password} onChange={(e) => setPassword(e.target.value)} value={password} />
 
           <button 
             onClick={async (e) => {
+              const commerceClient: ECommerceClient = new ECommerceClient();
+              
               try {
-                const loginResponse = await getCommerce().customer.login(email, "localhost:3000/login/callback");
-                if(loginResponse.success)
-                  console.log(`Logged in successfully`);
-                  else 
-                  console.log(`Log in failed`);
+                const response: AuthenticationResponse = await commerceClient.authentication.login(email, password);
+                console.log(`Logged in successfully`);
 
+                sessionStorage.setItem("token", JSON.stringify(response.token, null, 2));
+                
+                await Router.push(`/`);
               }
               catch(e) {
-                console.log(`CustomLog: Login error: ${JSON.stringify(e, null, 2)}`);
+                console.log(`CustomLog: Login error: ${(e as Error).message}`);                
               }
             }}
           >

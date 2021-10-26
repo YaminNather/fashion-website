@@ -22,7 +22,7 @@ const ToPageBar: React.FC<ToPageBarProps> = (props) => {
     const r: JSX.Element[] = [];
     for(let i: number = 1; i <= 4; i++) {
       r.push( 
-        <Link href="/">
+        <Link key={i} href="/">
           <a><button className={classNames((i == props.currentPage) ? [styles.active_button] : [])}>{i}</button></a>
         </Link> 
       );

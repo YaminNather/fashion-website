@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import classNames from "classnames";
 import React from "react";
 import styles from "../../../../styles/components/home/categories_section/category_card/category_card.module.scss";
+import Image from "next/image";
 
 export interface CategoryCardProps {
   category: string;
@@ -16,8 +17,11 @@ const CategoryCard: React.FC<CategoryCardProps> = (props) => {
     const textAreaScale: number = (hovering) ? 1.0 : 0.0;
 
     return (
-      <div className={classNames(styles.category_card)} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
-        <img src={props.imageSrc} />
+      <div 
+        className={classNames(styles.category_card)} 
+        onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}
+      >
+        <Image src={props.imageSrc} layout="fill" />
 
         <div className={classNames(styles.text_area)} style={{transform: `scaleY(${textAreaScale})`}}>
           <Typography color="white" variant="h6">{props.category}</Typography>

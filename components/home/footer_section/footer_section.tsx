@@ -43,7 +43,7 @@ const FooterSection: React.FC = (props) => {
         <MiddleArea />
 
         <div className={classNames(styles.bottom_area)}>
-          2021, Flare
+          2021, sample.
         </div>
       </section>      
     );

@@ -1,11 +1,13 @@
-import { Product } from "@chec/commerce.js/types/product";
+// import { Product } from "@chec/commerce.js/types/product";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
+import Product from "ecommerce_client/dist/models/product";
 import React from "react";
-// import Product from "../../product/product";
+// import Product from "../../../commerce_client/inventory/product";
 import ProductsList from "../products_list/products_list";
+
 
 // const products: Product[] = [
 //   { 
@@ -69,7 +71,7 @@ const TopProductsSection: React.FC<TopProductsSectionProps> = (props) => {
           <Typography variant="h2">Top Products</Typography>
 
           <Tabs value={tab} onChange={(event, value) => setTab(value)}>
-            {categories.map( (value, index) => <Tab value={value} label={value} /> )}
+            {categories.map( (value, index) => <Tab key={index} value={value} label={value} /> )}
           </Tabs>          
 
           <ProductsList products={props.products} style={{marginTop: "32px"}} />

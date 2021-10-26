@@ -63,10 +63,21 @@ button {
   font-weight: 500;
   color: white;
   
+  &:disabled {
+    background-color: grey;
+    color: white;
+  }
+
   &:hover {
     background-color: lightgrey;
     color: black;
-  }
+    cursor: pointer;
+
+    &:disabled {
+      background-color: grey;
+      color: white;
+    }
+  }  
 }
 
 ul {

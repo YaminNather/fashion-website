@@ -4,10 +4,11 @@ import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 import { Button, createTheme, Theme, ThemeProvider, Typography } from "@mui/material";
 import classNames from "classnames";
 import React from "react";
-// import Product from "../product";
 import styles from "./product_image.module.scss";
 import Link from "next/link";
-import { Product } from "@chec/commerce.js/types/product";
+import Product from "ecommerce_client/dist/models/product";
+// import Product from "../../../commerce_client/inventory/product";
+import Image from "next/image";
 
 export interface ProductImageProps {
   className?: string;
@@ -55,7 +56,7 @@ const ProductImage: React.FC<ProductImageProps> = (props) => {
           onMouseLeave={(e) => setHovering(false)}
         >
           <div className={classNames(styles.image_viewport)}>
-            <img src={props.product.media.source} />
+            <Image src={props.product.images[0]} layout="fill" />
           </div>
 
           <ThemeProvider theme={theme}>
@@ -74,11 +75,20 @@ const ProductImage: React.FC<ProductImageProps> = (props) => {
             </div>
           </ThemeProvider>
 
-          <div className={classNames(styles.discount_container)}  style={{transform: `scale(${(hovering) ? 1 : 0})`}}>
-            <Typography color="black">20% off</Typography>
-          </div>
+          {buildDiscountTag()}
         </div>
       </Link>
+    );
+  }
+
+  function buildDiscountTag(): JSX.Element | undefined {
+    if(props.product.discount == null)
+      return undefined;    
+    
+    return ( 
+      <div className={classNames(styles.discount_container)} style={{transform: `scale(${(hovering) ? 1 : 0})`}}>
+        <Typography color="black">{`${props.product.discount.formatted} off`}</Typography>
+      </div>
     );
   }
 

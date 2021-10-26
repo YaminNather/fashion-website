@@ -6,7 +6,7 @@ const Banner: React.FC = (props) => {
   function render(): JSX.Element {
     return (
       <div className={classNames(styles.banner)}>
-        <h5>OUR COLLECTION</h5>
+        <h5>{props.children}</h5>
       </div>
     );
   }

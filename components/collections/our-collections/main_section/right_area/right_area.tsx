@@ -4,7 +4,8 @@ import styles from "./right_area.module.scss";
 import FilterBar from "./filter_bar/filter_bar";
 import ProductsList from "./products_list/products_list";
 import ToPageBar from "./to_page_bar/to_page_bar";
-import { Product } from "@chec/commerce.js/types/product";
+// import { Product } from "@chec/commerce.js/types/product";
+import Product from "ecommerce_client/dist/models/product";
 
 // const products: Product[] = [
 //   { 

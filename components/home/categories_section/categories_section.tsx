@@ -15,7 +15,7 @@ const CategoriesSection: React.FC = (props) => {
           
             <CategoryCard category="OTHER ACCESSORIES" imageSrc="https://cdn.shopify.com/s/files/1/0041/9525/4381/files/cat-img-1.jpg?v=1560413374" />
           
-            <CategoryCard category="CHILDRENS ACCESSORIES" imageSrc="//cdn.shopify.com/s/files/1/0041/9525/4381/files/cat-img-3.jpg?v=1560413459" />
+            <CategoryCard category="CHILDRENS ACCESSORIES" imageSrc="https://cdn.shopify.com/s/files/1/0041/9525/4381/files/cat-img-3.jpg?v=1560413459" />
           </Carousel>
         </Box>
       </section>

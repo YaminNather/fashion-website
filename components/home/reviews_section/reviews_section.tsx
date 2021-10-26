@@ -3,6 +3,7 @@ import classNames from "classnames";
 import React from "react";
 import styles from "../../../styles/components/home/reviews_section/reviews_section.module.scss";
 import Carousel from "../../carousel/carousel";
+import Image from "next/image";
 
 const ReviewsSection: React.FC = (props) => {
   function render(): JSX.Element {
@@ -27,7 +28,7 @@ const ReviewsSection: React.FC = (props) => {
     return (
       <div className={classNames(styles.card)}>
         <div className={classNames(styles.upper_section)}>
-          <img src="https://cdn.shopify.com/s/files/1/0041/9525/4381/files/person2.jpg" />
+          <Image src="https://cdn.shopify.com/s/files/1/0041/9525/4381/files/person2.jpg" width="88px" height="88px" />
 
           <div className={classNames(styles.text_area)}>
             <Typography fontSize="16px" fontWeight="bold" color="black">MACK JECKNO</Typography>

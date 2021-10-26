@@ -6,12 +6,33 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import styles from "./nav_bar.module.scss";
 import Link from "next/link";
 import Dropdown, { DropdownAnchor, DropdownList } from "./drop_down/drop_down";
+import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
+import Cart from "ecommerce_client/dist/models/cart";
+import Badge from "@mui/material/Badge";
 
 const NavBar: React.FC = (props) => {
+  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
+  const [cartCount, setCartCount] = React.useState<number | null>(0);
+  
+  React.useEffect(
+    () => {
+      async function asyncPart(): Promise<void> {
+        const eCommerceClient: ECommerceClient = new ECommerceClient();
+        setLoggedIn(eCommerceClient.authentication.isLoggedIn());
+
+        const cart: Cart = await eCommerceClient.carts.get();
+        setCartCount(cart.items.length);
+      }
+
+      asyncPart();
+    },
+    []
+  );
+  
   function render(): JSX.Element {
     return (
       <nav className={classNames("container", styles.nav_bar)}>
-        <span className={classNames("h3", styles.logo)}>flare</span>
+        <span className={classNames("h3", styles.logo)}>sample.</span>
         {/* <Typography variant="h3">craze.</Typography> */}
         
         <div>
@@ -99,11 +120,16 @@ const NavBar: React.FC = (props) => {
         <div className={classNames(styles.actions)}>
           <SearchOutlinedIcon className={classNames(styles.icon_button)} />
 
-          <AccountCircleOutlinedIcon className={classNames(styles.icon_button)} />
+          <AccountCircleOutlinedIcon
+            className={classNames(styles.icon_button)}
+            style={{color: (loggedIn) ? "red" : "black"}}
+          />
 
-          <div className={classNames(styles.button, styles.cart_button_container)}>
-            <ShoppingBagOutlinedIcon htmlColor="white" />
-          </div>
+          <Link href="/cart">
+            <div className={classNames(styles.button, styles.cart_button_container)}>              
+              <ShoppingBagOutlinedIcon className={classNames(styles.shopping_bag_icon)} />              
+            </div>
+          </Link>
         </div>
       </nav>
     );
