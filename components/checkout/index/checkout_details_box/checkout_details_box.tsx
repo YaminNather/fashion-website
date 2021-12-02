@@ -11,7 +11,7 @@ const CheckoutDetailsBox: React.FC<CheckoutDetailsBoxProps> = (props) => {
   function render(): JSX.Element {
     return (
       <div className={styles.checkout_details_box}>
-        {props.cart.items.map((cartItem, index) => buildCartItem(cartItem))}
+        {props.cart.items.map((cartItem, index) => buildCartItem(cartItem, index))}
 
         <hr />
 
@@ -20,9 +20,9 @@ const CheckoutDetailsBox: React.FC<CheckoutDetailsBoxProps> = (props) => {
     );
   }
 
-  function buildCartItem(cartItem: CartItem) {
+  function buildCartItem(cartItem: CartItem, key: number) {
     return (
-      <div className={styles.cart_item}>
+      <div key={key} className={styles.cart_item}>
         <div className={styles.left_area}>
           <img src={cartItem.product.images[0]} />
 
