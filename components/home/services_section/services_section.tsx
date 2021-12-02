@@ -5,7 +5,7 @@ import styles from "../../../styles/components/home/services_section/services_se
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import AirplanemodeActiveOutlined from "@mui/icons-material/AirplanemodeActiveOutlined";
-import CardGiftcardOutlined from "@mui/icons-material/CardGiftCardOutlined";
+import CardGiftcardOutlined from "@mui/icons-material/CardGiftcardOutlined";
 import PhoneOutlined from "@mui/icons-material/PhoneOutlined";
 import ReplayOutlined from "@mui/icons-material/ReplayOutlined";
 import Divider from "@mui/material/Divider";
