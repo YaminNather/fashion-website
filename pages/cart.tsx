@@ -1,4 +1,4 @@
-import Cart from "ecommerce_client/dist/models/cart";
+import Cart from "@yaminnathernpm/ecommerce_client/dist/models/cart";
 import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
@@ -7,7 +7,7 @@ import CartItemsTable from "../components/cart/cart_items_table/cart_items_table
 import CheckoutBox from "../components/cart/checkout_box/checkout_box";
 import FooterSection from "../components/home/footer_section/footer_section";
 import NavBar from "../components/nav_bar/nav_bar";
-import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
+import ECommerceClient from "@yaminnathernpm/ecommerce_client/dist/ecommerce_client";
 import styles from "../styles/cart.module.scss";
 import classNames from "classnames";
 

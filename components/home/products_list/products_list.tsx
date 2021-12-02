@@ -5,7 +5,7 @@ import Carousel from "../../carousel/carousel";
 import ProductCard from "../product_card/product_card";
 import styles from "../../../styles/components/home/products_list/products_list.module.scss";
 // import Product from "../../../commerce_client/inventory/product";
-import Product from "ecommerce_client/dist/models/product";
+import Product from "@yaminnathernpm/ecommerce_client/dist/models/product";
 
 export interface ProductListProps {
   products: Product[];

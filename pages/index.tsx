@@ -12,8 +12,8 @@ import ReviewsSection from '../components/home/reviews_section/reviews_section';
 import ClientsSection from '../components/home/clients_section/clients_section';
 import FooterSection from '../components/home/footer_section/footer_section';
 import NavBar from '../components/nav_bar/nav_bar';
-import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
-import Product from 'ecommerce_client/dist/models/product';
+import ECommerceClient from "@yaminnathernpm/ecommerce_client/dist/ecommerce_client";
+import Product from '@yaminnathernpm/ecommerce_client/dist/models/product';
 
 interface ServerSideProps {
   productsJSON: string;

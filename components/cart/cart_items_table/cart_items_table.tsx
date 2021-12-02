@@ -1,6 +1,6 @@
 import TableHead from "@mui/material/TableHead";
 import Table from "@mui/material/Table";
-import Cart from "ecommerce_client/dist/models/cart"
+import Cart from "@yaminnathernpm/ecommerce_client/dist/models/cart"
 import React from "react";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";

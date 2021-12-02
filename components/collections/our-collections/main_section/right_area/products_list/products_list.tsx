@@ -1,5 +1,5 @@
 // import { Product } from "@chec/commerce.js/types/product";
-import Product from "ecommerce_client/dist/models/product";
+import Product from "@yaminnathernpm/ecommerce_client/dist/models/product";
 import React from "react";
 import ProductListItem from "./product_list_item/product_list_item";
 

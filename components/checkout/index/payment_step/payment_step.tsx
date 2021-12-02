@@ -5,10 +5,10 @@ import CheckoutPageState, { addressToString, checkoutPageContext, PaymentMethodO
 import FormControlLabel from "@mui/material/FormControlLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
-import RazorpayPayment from  "ecommerce_client/dist/checkout/razorpay_payment";
-import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
+import RazorpayPayment from  "@yaminnathernpm/ecommerce_client/dist/checkout/razorpay_payment";
+import ECommerceClient from "@yaminnathernpm/ecommerce_client/dist/ecommerce_client";
 import router from "next/router";
-import Order from "ecommerce_client/dist/models/order";
+import Order from "@yaminnathernpm/ecommerce_client/dist/models/order";
 
 // type PaymentOptions = "OnDelivery" | "Online";
 

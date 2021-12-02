@@ -11,6 +11,7 @@ interface CarouselProps {
   style?: React.CSSProperties;
   slidesPerView?: number;
   spaceBetween?: number;
+  loop?: boolean;
 }
 
 const Carousel: React.FC<CarouselProps> = (props) => {
@@ -19,7 +20,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   function render(): JSX.Element {  
     return (
       <div className={props.className} style={props.style}>
-        <Swiper slidesPerView={props.slidesPerView ?? 1} loop={true} spaceBetween={props.spaceBetween ?? 0} freeMode={true}>
+        <Swiper slidesPerView={props.slidesPerView ?? 1} loop={props.loop ?? true} spaceBetween={props.spaceBetween ?? 0} freeMode={true}>
           {getSlides()}
         </Swiper>
       </div>

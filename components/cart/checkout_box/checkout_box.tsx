@@ -1,8 +1,8 @@
 import classNames from "classnames";
-import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
-import Cart from "ecommerce_client/dist/models/cart";
-import CheckoutResponse from "ecommerce_client/dist/models/checkout_response";
-import CheckoutToken from "ecommerce_client/dist/models/checkout_token";
+import ECommerceClient from "@yaminnathernpm/ecommerce_client/dist/ecommerce_client";
+import Cart from "@yaminnathernpm/ecommerce_client/dist/models/cart";
+import CheckoutResponse from "@yaminnathernpm/ecommerce_client/dist/models/checkout_response";
+import CheckoutToken from "@yaminnathernpm/ecommerce_client/dist/models/checkout_token";
 import { NextRouter, useRouter } from "next/router";
 import React from "react";
 import styles from "./checkout_box_styles.module.scss";

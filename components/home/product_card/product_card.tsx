@@ -4,7 +4,7 @@ import classNames from "classnames";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ProductImage from "../../product/product_image/product_image";
-import Product from "ecommerce_client/dist/models/product";
+import Product from "@yaminnathernpm/ecommerce_client/dist/models/product";
 // import Product from "../../../commerce_client/inventory/product";
 
 export interface ProductCardProps {

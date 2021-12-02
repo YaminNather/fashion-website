@@ -5,7 +5,8 @@ module.exports = {
     domains: [
       "cdn.shopify.com",
       "localhost",
-      "allensolly.imgix.net"
+      "allensolly.imgix.net",
+      "firebasestorage.googleapis.com"
     ]
   }
 }

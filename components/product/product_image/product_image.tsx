@@ -6,7 +6,7 @@ import classNames from "classnames";
 import React from "react";
 import styles from "./product_image.module.scss";
 import Link from "next/link";
-import Product from "ecommerce_client/dist/models/product";
+import Product from "@yaminnathernpm/ecommerce_client/dist/models/product";
 // import Product from "../../../commerce_client/inventory/product";
 import Image from "next/image";
 

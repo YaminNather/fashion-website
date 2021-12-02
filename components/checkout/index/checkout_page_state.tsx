@@ -1,7 +1,7 @@
 import { ChangeNotifier } from "change-notifier";
-import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
-import CheckoutToken from "ecommerce_client/dist/models/checkout_token";
-import Token from "ecommerce_client/dist/token";
+import ECommerceClient from "@yaminnathernpm/ecommerce_client/dist/ecommerce_client";
+import CheckoutToken from "@yaminnathernpm/ecommerce_client/dist/models/checkout_token";
+import Token from "@yaminnathernpm/ecommerce_client/dist/token";
 import react from "react";
 
 export type PaymentMethodOptions = "on_delivery" | "online";

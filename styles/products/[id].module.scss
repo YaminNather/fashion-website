@@ -1,9 +1,21 @@
 .main_section {
   margin-top: 64px;
 
-  img {
-    width: 100%;
-  }  
+  .pictures_area {
+    .thumbnails {
+      display: flex;
+
+      .thumbnail {
+        display: inline-flex;
+        margin-right: 16px;                
+      }
+
+      .thumbnail_selected {
+        @extend .thumbnail;
+        border: 2px solid black;
+      }
+    }    
+  }
 
   .right_area {    
     .heading {

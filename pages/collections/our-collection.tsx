@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
-import Product from "ecommerce_client/dist/models/product";
+import ECommerceClient from "@yaminnathernpm/ecommerce_client/dist/ecommerce_client";
+import Product from "@yaminnathernpm/ecommerce_client/dist/models/product";
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import React from "react";
@@ -57,7 +57,15 @@ export default OurCollectionsPage;
 export const getServerSideProps: GetServerSideProps<ServerSideProps> = async (context) => {
   const client: ECommerceClient = getECommerceClient();
   
-  const products: Product[] = await client.inventory.getAllProducts();
+  let categories: string[] | undefined = undefined;
+  if(typeof context.query["categories"] == "string")
+    categories = [context.query["categories"]];
+  else if(Array.isArray(context.query["categories"]))
+    categories = context.query["categories"];
+
+  console.log(`CustomLog: Queries: ${JSON.stringify(context.query, null, 2)}`);
+
+  const products: Product[] = await client.inventory.getAllProducts({categories: categories});
 
   return {
     props: {

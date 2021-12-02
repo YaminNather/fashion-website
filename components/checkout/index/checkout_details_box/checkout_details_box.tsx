@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import Cart, { CartItem } from "ecommerce_client/dist/models/cart";
+import Cart, { CartItem } from "@yaminnathernpm/ecommerce_client/dist/models/cart";
 import React from "react";
 import styles from "./checkout_details_box.module.scss";
 

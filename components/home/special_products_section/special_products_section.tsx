@@ -4,7 +4,7 @@ import React from "react";
 import ProductsList from "../products_list/products_list";
 import styles from "../../../styles/components/home/special_products_section/special_products_section.module.scss";
 import classNames from "classnames";
-import Product from "ecommerce_client/dist/models/product";
+import Product from "@yaminnathernpm/ecommerce_client/dist/models/product";
 
 // const products: Product[] = [
 //   { 

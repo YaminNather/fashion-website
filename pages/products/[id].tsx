@@ -12,9 +12,11 @@ import NavBar from "../../components/nav_bar/nav_bar";
 import ItemDetailSelect, { ItemDetailOption } from "../../components/products/[id]/item_detail_select/item_detail_select";
 import styles from "../../styles/products/[id].module.scss";
 import Link from "next/link";
-import Product from "ecommerce_client/dist/models/product";
-import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
-import Cart from "ecommerce_client/dist/models/cart";
+import Product from "@yaminnathernpm/ecommerce_client/dist/models/product";
+import ECommerceClient from "@yaminnathernpm/ecommerce_client/dist/ecommerce_client";
+import Cart from "@yaminnathernpm/ecommerce_client/dist/models/cart";
+import Image from "next/image";
+import Carousel from "../../components/carousel/carousel";
 
 interface ServerSideProps {
   product: string;
@@ -33,6 +35,8 @@ const ProductPage: NextPage<ServerSideProps> = (serverSideProps) => {
   
   const [loading, setLoading] = React.useState<boolean>(false);
   const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
+  const [mainPicture, setMainPicture] = React.useState<number>(0);
+
   React.useEffect(
     () => {
       const eCommerceClient: ECommerceClient = new ECommerceClient();
@@ -57,9 +61,33 @@ const ProductPage: NextPage<ServerSideProps> = (serverSideProps) => {
   
         <main className={classNames("container", styles.main_section)}>
           <Grid container={true} spacing={4}>
-            <Grid item={true} md={6}>
+            <Grid className={classNames(styles.pictures_area)} item={true} md={6}>
               {/* <img src="https://cdn.shopify.com/s/files/1/0041/9525/4381/products/3_4d00d666-2e6d-41eb-93b3-e056004b1cf9_1024x1024@2x.jpg" /> */}
-              <img src={props.product.images[0]} />
+              <Image src={props.product.images[mainPicture]} width="512px" height="600px" />
+              
+              <Carousel slidesPerView={4} loop={false}>
+                {props.product.images.map( 
+                  (imageURL, index) => {                    
+                    return (
+                      <div className={(index == mainPicture) ? styles.thumbnail_selected : styles.thumbnail} onClick={(e) => setMainPicture(index)}>
+                        <Image key={imageURL} src={imageURL} width={64} height={80} objectFit="cover" />
+                      </div>
+                    );
+                  }
+                )}
+              </Carousel>
+
+              {/* <div className={classNames(styles.thumbnails)}>
+                {props.product.images.map( 
+                  (imageURL, index) => {                    
+                    return (
+                      <div className={(index == mainPicture) ? styles.thumbnail_selected : styles.thumbnail} onClick={(e) => setMainPicture(index)}>
+                        <Image key={imageURL} src={imageURL} width={64} height={80} objectFit="cover" />
+                      </div>
+                    );
+                  }
+                )}
+              </div> */}
             </Grid>
             
             <Grid item={true} md={6} className={classNames(styles.right_area)}>

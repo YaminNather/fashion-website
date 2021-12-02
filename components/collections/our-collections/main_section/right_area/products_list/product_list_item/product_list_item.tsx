@@ -6,7 +6,7 @@ import styles from "./product_list_item.module.scss";
 import Star from "@mui/icons-material/Star";
 import StarOutline from "@mui/icons-material/StarOutline";
 import Link from "next/link";
-import Product from "ecommerce_client/dist/models/product";
+import Product from "@yaminnathernpm/ecommerce_client/dist/models/product";
 
 export interface ProductListItemProps {
   product: Product;
@@ -19,7 +19,7 @@ const ProductListItem: React.FC<ProductListItemProps> = (props) => {
         <ProductImage product={props.product} className={classNames(styles.image)} />
 
         <div className={classNames(styles.text_area)}>
-          <Link href="/"><a className={classNames(styles.heading)}>{props.product.product_name}</a></Link>
+          <Link href={`/products/${props.product.id}`}><a className={classNames(styles.heading)}>{props.product.product_name}</a></Link>
 
           <p className={classNames(styles.stars)}>
             <Star />

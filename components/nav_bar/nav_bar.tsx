@@ -6,8 +6,8 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import styles from "./nav_bar.module.scss";
 import Link from "next/link";
 import Dropdown, { DropdownAnchor, DropdownList } from "./drop_down/drop_down";
-import ECommerceClient from "ecommerce_client/dist/ecommerce_client";
-import Cart from "ecommerce_client/dist/models/cart";
+import ECommerceClient from "@yaminnathernpm/ecommerce_client/dist/ecommerce_client";
+import Cart from "@yaminnathernpm/ecommerce_client/dist/models/cart";
 import Badge from "@mui/material/Badge";
 
 const NavBar: React.FC = (props) => {
@@ -20,6 +20,9 @@ const NavBar: React.FC = (props) => {
         const eCommerceClient: ECommerceClient = new ECommerceClient();
         setLoggedIn(eCommerceClient.authentication.isLoggedIn());
 
+        if(!loggedIn)
+          return;
+          
         const cart: Cart = await eCommerceClient.carts.get();
         setCartCount(cart.items.length);
       }

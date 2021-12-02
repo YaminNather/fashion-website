@@ -5,8 +5,8 @@ import FooterSection from '../components/home/footer_section/footer_section';
 import NavBar from '../components/nav_bar/nav_bar';
 import styles from "../styles/login.module.scss";
 import Router from "next/router";
-import { AuthenticationResponse } from 'ecommerce_client/dist/authentication/authentication';
-import ECommerceClient from 'ecommerce_client/dist/ecommerce_client';
+import { AuthenticationResponse } from '@yaminnathernpm/ecommerce_client/dist/authentication/authentication';
+import ECommerceClient from '@yaminnathernpm/ecommerce_client/dist/ecommerce_client';
 
 // interface Props {
 //   products: Product[];
