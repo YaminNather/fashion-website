@@ -69,8 +69,8 @@ const ProductPage: NextPage<ServerSideProps> = (serverSideProps) => {
                 {props.product.images.map( 
                   (imageURL, index) => {                    
                     return (
-                      <div className={(index == mainPicture) ? styles.thumbnail_selected : styles.thumbnail} onClick={(e) => setMainPicture(index)}>
-                        <Image key={imageURL} src={imageURL} width={64} height={80} objectFit="cover" />
+                      <div key={index} className={(index == mainPicture) ? styles.thumbnail_selected : styles.thumbnail} onClick={(e) => setMainPicture(index)}>
+                        <Image src={imageURL} width={64} height={80} objectFit="cover" />
                       </div>
                     );
                   }
